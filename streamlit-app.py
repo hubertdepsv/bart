@@ -2,19 +2,23 @@ import streamlit as st
 from transformers import pipeline
 from summarizer import summarize_a_text
 
-option = st.selectbox(
-    "Select an Option",
-    [
-        "Text Summarization",
-    ],
-)
 
-text = st.text_area(label="Enter text")
-if text:
-    #summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-    #answer = summarizer(text, max_length=130, min_length=30, do_sample=False)
-    #st.write(answer[0]["summary_text"])
+def generate_header():
+    st.title("Text summarization")
 
-    answer = summarize_a_text(text, path='model_files', source_len=1024, 
-        max_length_pred=128, min_length_pred=30)
-    st.write(answer)
+
+def summarize():
+    text = st.text_area(label="Enter text")
+    if text:
+        # use facebook's pre-trained model in case you don't have our model's weights locally
+        summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+        answer = summarizer(text, max_length=130, min_length=30, do_sample=False)
+        st.write(answer[0]["summary_text"])
+        st.write(
+            f'The summary includes {len(answer[0]["summary_text"].split())} tokens while the input text has {len(text.split())} tokens.'
+        )
+
+
+if __name__ == "__main__":
+    generate_header()
+    summarize()
