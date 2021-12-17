@@ -1,6 +1,5 @@
 import streamlit as st
 from transformers import pipeline
-from summarizer import summarize_a_text
 
 
 def generate_header():
