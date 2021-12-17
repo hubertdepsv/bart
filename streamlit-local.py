@@ -22,7 +22,7 @@ def summarize(option):
         if option == "Our model":
             answer = summarize_a_text(
                 text,
-                path="../model_files",
+                path="../model_files",  # copy the model weights from E: to Projects
                 source_len=1024,
                 max_length_pred=128,
                 min_length_pred=30,
@@ -32,7 +32,7 @@ def summarize(option):
                 f"The summary includes {len(answer.split())} tokens while the input text has {len(text.split())} tokens."
             )
 
-        elif option == "Facebook pre-trained model":
+        elif option == "Hugging Face pre-trained model":
             # use facebook's pre-trained model in case you don't have our model's weights locally
             summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
             answer = summarizer(text, max_length=130, min_length=30, do_sample=False)
