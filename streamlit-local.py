@@ -10,7 +10,7 @@ def generate_header():
 def choose_model():
     option = st.selectbox(
         "Select a model",
-        ["Our model", "Facebook pre-trained model"],
+        ["Our model", "Hugging Face pre-trained model"],
     )
     return option
 
