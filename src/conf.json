@@ -1,0 +1,19 @@
+{
+    "model_checkpoint": "sshleifer/distilbart-xsum-6-6",
+    "dataset_name": "cnn_dailymail",
+    "target_text": "article",
+    "source_text": "highlights",
+    "train_len": 5000,
+    "validate_len": 2000,
+
+    "lr": 1e-4,
+    "train_batch_size": 6,
+    "validate_batch_size": 12,
+    "num_epochs":10,
+
+    "source_len": 1024,
+    "summ_len": 128,
+
+    "path": "./model_files"
+
+}
