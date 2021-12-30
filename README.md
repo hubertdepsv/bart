@@ -6,5 +6,7 @@
 
 This repo presents our results in a Streamlit app. We compare BART with a smaller version of BART trained on Xsum and fine-tuned without any freezed layer.
 
+
+
 **Demo of the application:**
 ![demo](docs/video_summarizer.gif)
